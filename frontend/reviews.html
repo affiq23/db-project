@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Database - Reviews</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Database</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="actors.html">Actors</a></li>
+                <li><a href="directors.html">Directors</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="review-form">
+            <h2>Submit a Review</h2>
+            <form action="submit_review.html" method="POST">
+                <div class="form-group">
+                    <label for="movie">Select Movie:</label>
+                    <select name="movie_id" id="movie" required>
+                        <option value="">Choose a movie...</option>
+                        <!-- Movie options will be populated here -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Rating (1-10):</label>
+                    <input type="number" name="rating" id="rating" min="1" max="10" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reviewer_name">Your Name:</label>
+                    <input type="text" name="reviewer_name" id="reviewer_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="review_text">Your Review:</label>
+                    <textarea name="review_text" id="review_text" rows="5" required></textarea>
+                </div>
+
+                <button type="submit">Submit Review</button>
+            </form>
+        </section>
+
+        <section class="recent-reviews">
+            <h2>Recent Reviews</h2>
+            <div class="review-list">
+                <!-- Example Reviews -->
+                <div class="review-card">
+                    <h3>Inception</h3>
+                    <div class="rating">Rating: 9/10</div>
+                    <p class="reviewer">Reviewed by: John Smith</p>
+                    <p class="date">Date: March 15, 2024</p>
+                    <div class="review-text">
+                        <p>An absolute masterpiece of modern cinema. Christopher Nolan's direction is flawless, and the concept of dream manipulation is executed brilliantly. The special effects are mind-bending, and the performances, especially from Leonardo DiCaprio, are outstanding. The complex plot keeps you engaged from start to finish.</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <h3>The Godfather</h3>
+                    <div class="rating">Rating: 10/10</div>
+                    <p class="reviewer">Reviewed by: Sarah Johnson</p>
+                    <p class="date">Date: March 14, 2024</p>
+                    <div class="review-text">
+                        <p>A timeless classic that defines the gangster genre. Marlon Brando's performance as Don Vito Corleone is legendary, and the film's exploration of family, power, and morality is masterful. The cinematography and score are perfect, creating an atmosphere that's both intimate and epic.</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <h3>Spirited Away</h3>
+                    <div class="rating">Rating: 9.5/10</div>
+                    <p class="reviewer">Reviewed by: Michael Chen</p>
+                    <p class="date">Date: March 13, 2024</p>
+                    <div class="review-text">
+                        <p>Hayao Miyazaki's masterpiece is a beautiful blend of Japanese folklore and coming-of-age story. The animation is breathtaking, and the world-building is incredibly detailed. The characters are memorable, and the story teaches valuable lessons about courage and growing up. A must-watch for animation fans.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Movie Database. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

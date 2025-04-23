@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Database - Movies</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Database</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="actors.html">Actors</a></li>
+                <li><a href="directors.html">Directors</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="filters">
+            <h2>Filter Movies</h2>
+            <form action="movies.html" method="GET">
+                <div class="filter-group">
+                    <label for="genre">Genre:</label>
+                    <select name="genre" id="genre">
+                        <option value="">All Genres</option>
+                        <option value="action">Action</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="drama">Drama</option>
+                        <option value="sci-fi">Sci-Fi</option>
+                        <!-- More genres will be added -->
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="year">Release Year:</label>
+                    <select name="year" id="year">
+                        <option value="">All Years</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <!-- More years will be added -->
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="sort">Sort By:</label>
+                    <select name="sort" id="sort">
+                        <option value="title">Title</option>
+                        <option value="release_date">Release Date</option>
+                        <option value="rating">Rating</option>
+                    </select>
+                </div>
+
+                <button type="submit">Apply Filters</button>
+            </form>
+        </section>
+
+        <section class="movie-list">
+            <h2>All Movies</h2>
+            <div class="movie-grid">
+                <!-- Example Movie Cards -->
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/300x450" alt="Inception Poster">
+                    </div>
+                    <div class="movie-info">
+                        <h3>Inception</h3>
+                        <p class="year">2010</p>
+                        <p class="genre">Sci-Fi, Action</p>
+                        <p class="director">Directed by Christopher Nolan</p>
+                        <p class="rating">Rating: 8.8/10</p>
+                        <div class="cast">
+                            <h4>Cast:</h4>
+                            <ul>
+                                <li>Leonardo DiCaprio</li>
+                                <li>Ellen Page</li>
+                                <li>Joseph Gordon-Levitt</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/300x450" alt="The Godfather Poster">
+                    </div>
+                    <div class="movie-info">
+                        <h3>The Godfather</h3>
+                        <p class="year">1972</p>
+                        <p class="genre">Crime, Drama</p>
+                        <p class="director">Directed by Francis Ford Coppola</p>
+                        <p class="rating">Rating: 9.2/10</p>
+                        <div class="cast">
+                            <h4>Cast:</h4>
+                            <ul>
+                                <li>Marlon Brando</li>
+                                <li>Al Pacino</li>
+                                <li>James Caan</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/300x450" alt="Spirited Away Poster">
+                    </div>
+                    <div class="movie-info">
+                        <h3>Spirited Away</h3>
+                        <p class="year">2001</p>
+                        <p class="genre">Animation, Fantasy</p>
+                        <p class="director">Directed by Hayao Miyazaki</p>
+                        <p class="rating">Rating: 8.6/10</p>
+                        <div class="cast">
+                            <h4>Cast:</h4>
+                            <ul>
+                                <li>Rumi Hiiragi</li>
+                                <li>Miyu Irino</li>
+                                <li>Mari Natsuki</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Movie Database. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

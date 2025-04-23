@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Database - Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Database</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="actors.html">Actors</a></li>
+                <li><a href="directors.html">Directors</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="admin-login">
+            <h2>Admin Login</h2>
+            <form action="admin_dashboard.html" method="POST">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+
+                <button type="submit">Login</button>
+            </form>
+        </section>
+
+        <section class="admin-dashboard" style="display: none;">
+            <h2>Admin Dashboard</h2>
+            
+            <div class="admin-section">
+                <h3>Add New Movie</h3>
+                <form action="add_movie.html" method="POST">
+                    <div class="form-group">
+                        <label for="movie_title">Title:</label>
+                        <input type="text" name="title" id="movie_title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="release_date">Release Date:</label>
+                        <input type="date" name="release_date" id="release_date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genre">Genre:</label>
+                        <input type="text" name="genre" id="genre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="director">Director:</label>
+                        <select name="director_id" id="director" required>
+                            <!-- Director options will be populated here -->
+                        </select>
+                    </div>
+
+                    <button type="submit">Add Movie</button>
+                </form>
+            </div>
+
+            <div class="admin-section">
+                <h3>Add New Actor</h3>
+                <form action="add_actor.html" method="POST">
+                    <div class="form-group">
+                        <label for="first_name">First Name:</label>
+                        <input type="text" name="first_name" id="first_name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" name="last_name" id="last_name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date_of_birth">Date of Birth:</label>
+                        <input type="date" name="date_of_birth" id="date_of_birth" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nationality">Nationality:</label>
+                        <input type="text" name="nationality" id="nationality" required>
+                    </div>
+
+                    <button type="submit">Add Actor</button>
+                </form>
+            </div>
+
+            <div class="admin-section">
+                <h3>Manage Reviews</h3>
+                <div class="review-management">
+                    <!-- Review list with approve/delete options will be populated here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Movie Database. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Database - Actors</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Database</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="actors.html">Actors</a></li>
+                <li><a href="directors.html">Directors</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="filters">
+            <h2>Filter Actors</h2>
+            <form action="actors.html" method="GET">
+                <div class="filter-group">
+                    <label for="nationality">Nationality:</label>
+                    <select name="nationality" id="nationality">
+                        <option value="">All Nationalities</option>
+                        <option value="american">American</option>
+                        <option value="british">British</option>
+                        <option value="indian">Indian</option>
+                        <!-- More nationalities will be added -->
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="sort">Sort By:</label>
+                    <select name="sort" id="sort">
+                        <option value="name">Name</option>
+                        <option value="movies">Number of Movies</option>
+                    </select>
+                </div>
+
+                <button type="submit">Apply Filters</button>
+            </form>
+        </section>
+
+        <section class="actor-list">
+            <h2>All Actors</h2>
+            <div class="actor-grid">
+                <!-- Example Actor Cards -->
+                <div class="actor-card">
+                    <div class="actor-photo">
+                        <img src="https://via.placeholder.com/200x200" alt="Leonardo DiCaprio">
+                    </div>
+                    <h3>Leonardo DiCaprio</h3>
+                    <p class="nationality">American</p>
+                    <p class="birth-date">Born: November 11, 1974</p>
+                    <p class="movie-count">Featured in 25 movies</p>
+                    <div class="notable-movies">
+                        <h4>Notable Works:</h4>
+                        <ul>
+                            <li>Titanic (1997)</li>
+                            <li>Inception (2010)</li>
+                            <li>The Revenant (2015)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="actor-card">
+                    <div class="actor-photo">
+                        <img src="https://via.placeholder.com/200x200" alt="Meryl Streep">
+                    </div>
+                    <h3>Meryl Streep</h3>
+                    <p class="nationality">American</p>
+                    <p class="birth-date">Born: June 22, 1949</p>
+                    <p class="movie-count">Featured in 45 movies</p>
+                    <div class="notable-movies">
+                        <h4>Notable Works:</h4>
+                        <ul>
+                            <li>The Devil Wears Prada (2006)</li>
+                            <li>Sophie's Choice (1982)</li>
+                            <li>Mamma Mia! (2008)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="actor-card">
+                    <div class="actor-photo">
+                        <img src="https://via.placeholder.com/200x200" alt="Tom Hanks">
+                    </div>
+                    <h3>Tom Hanks</h3>
+                    <p class="nationality">American</p>
+                    <p class="birth-date">Born: July 9, 1956</p>
+                    <p class="movie-count">Featured in 40 movies</p>
+                    <div class="notable-movies">
+                        <h4>Notable Works:</h4>
+                        <ul>
+                            <li>Forrest Gump (1994)</li>
+                            <li>Cast Away (2000)</li>
+                            <li>Saving Private Ryan (1998)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Movie Database. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

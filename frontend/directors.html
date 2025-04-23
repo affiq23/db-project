@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Database - Directors</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Database</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="actors.html">Actors</a></li>
+                <li><a href="directors.html">Directors</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="filters">
+            <h2>Filter Directors</h2>
+            <form action="directors.html" method="GET">
+                <div class="filter-group">
+                    <label for="nationality">Nationality:</label>
+                    <select name="nationality" id="nationality">
+                        <option value="">All Nationalities</option>
+                        <option value="american">American</option>
+                        <option value="british">British</option>
+                        <option value="indian">Indian</option>
+                        <option value="japanese">Japanese</option>
+                        <option value="french">French</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="sort">Sort By:</label>
+                    <select name="sort" id="sort">
+                        <option value="name">Name</option>
+                        <option value="movies">Number of Movies</option>
+                        <option value="rating">Average Rating</option>
+                    </select>
+                </div>
+
+                <button type="submit">Apply Filters</button>
+            </form>
+        </section>
+
+        <section class="director-list">
+            <h2>All Directors</h2>
+            <div class="director-grid">
+                <!-- Example Director Cards -->
+                <div class="director-card">
+                    <h3>Christopher Nolan</h3>
+                    <p class="nationality">British-American</p>
+                    <p class="movie-count">12 Movies</p>
+                    <p class="rating">Average Rating: 8.5/10</p>
+                    <div class="notable-movies">
+                        <h4>Notable Works:</h4>
+                        <ul>
+                            <li>Inception (2010)</li>
+                            <li>The Dark Knight (2008)</li>
+                            <li>Interstellar (2014)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="director-card">
+                    <h3>Martin Scorsese</h3>
+                    <p class="nationality">American</p>
+                    <p class="movie-count">26 Movies</p>
+                    <p class="rating">Average Rating: 8.2/10</p>
+                    <div class="notable-movies">
+                        <h4>Notable Works:</h4>
+                        <ul>
+                            <li>Goodfellas (1990)</li>
+                            <li>The Departed (2006)</li>
+                            <li>Taxi Driver (1976)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="director-card">
+                    <h3>Hayao Miyazaki</h3>
+                    <p class="nationality">Japanese</p>
+                    <p class="movie-count">11 Movies</p>
+                    <p class="rating">Average Rating: 8.8/10</p>
+                    <div class="notable-movies">
+                        <h4>Notable Works:</h4>
+                        <ul>
+                            <li>Spirited Away (2001)</li>
+                            <li>My Neighbor Totoro (1988)</li>
+                            <li>Princess Mononoke (1997)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Movie Database. All rights reserved.</p>
+    </footer>
+</body>
+</html> 
