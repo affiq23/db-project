@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getAllMovies } = require('../controllers/movieController');
+const { getAllMovies, searchMovies } = require('../controllers/movieController');
 router.get('/', getAllMovies);
+router.get('/search', searchMovies);
 module.exports = router;

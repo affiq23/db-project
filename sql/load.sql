@@ -1,4 +1,4 @@
-USE movies;
+USE movie_db;
 INSERT INTO Director (director_id, first_name, last_name, date_of_birth, nationality)
 VALUES (1, 'Frank', 'Darabont', '1959-01-28', 'American');
 INSERT INTO Movie (movie_id, title, genre, release_date, director_id)

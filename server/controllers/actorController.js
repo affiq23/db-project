@@ -1,6 +1,6 @@
 const db = require('../db'); // import MYSQL connection
 
-// run SELECT query on actors and send result as JSON, otherwise error
+// run SELECT query on Actor and send result as JSON, otherwise error
 exports.getAllActors = (req, res) => {
   db.query('SELECT * FROM Actor', (err, results) => { 
     if (err) {
