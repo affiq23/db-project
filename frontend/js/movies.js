@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const searchTerm = document.getElementById('searchInput').value;
-        console.log('Searching for:', searchTerm); // Debug log
+        //console.log('Searching for:', searchTerm); // Debug log
 
         fetch(`http://localhost:3001/movies/search?q=${encodeURIComponent(searchTerm)}`)
           .then(res => {
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return res.json();
           })
           .then(data => {
-              console.log('Search results:', data); // Debug log
+              // console.log('Search results:', data); // Debug log
               displayMovies(data);
           })
           .catch(err => {
