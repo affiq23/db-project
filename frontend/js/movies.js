@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Initial load
-    // fetch("http://localhost:3001/movies")
-    //   .then(res => res.json())
-    //   .then(data => displayMovies(data))
-    //   .catch(err => console.error("Error loading movies:", err));
+    fetch("http://localhost:3001/movies")
+    then(res => res.json())
+    .then(data => displayMovies(data))
+    .catch(err => console.error("Error loading movies:", err));
 
     // Handle search form submission
     const searchForm = document.getElementById('searchForm');
