@@ -40,10 +40,13 @@ CREATE TABLE Movie_Actor (
 );
 
 CREATE TABLE Review (
-    review_id INT PRIMARY KEY,
+    review_id INT PRIMARY KEY auto_increment,
     movie_id INT NOT NULL,
-    rating DECIMAL(2,1),
+    rating DECIMAL(3,1),
     date_of_rating DATE NOT NULL,
     reviewer_name VARCHAR(100),
+    review_text TEXT,
     FOREIGN KEY (movie_id) REFERENCES Movie(movie_id) ON DELETE CASCADE
 );
+
+ALTER TABLE Review ADD COLUMN review_text TEXT;

@@ -4,6 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const container = document.querySelector(".movie-grid");
         container.innerHTML = "";
 
+        if (!movies || movies.length === 0) {
+            container.innerHTML = "<p>No movies found</p>";
+            return;
+        }
+
         movies.forEach(movie => {
             // Normalize movie title for image filenames: lowercase and underscores
             const imageName = movie.title
@@ -36,22 +41,50 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
+    /*
     // Initial load
     fetch("http://localhost:3001/movies")
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then(data => displayMovies(data))
+      .catch(err => {
+        console.error("Error loading movies:", err);
+        document.querySelector(".movie-grid").innerHTML = `<p>Error loading movies: ${err.message}</p>`;
+      });
+    
+=======
     .then(res => res.json())
     .then(data => displayMovies(data))
     .catch(err => console.error("Error loading movies:", err));
+    
+    */
 
     // Handle search form submission
     const searchForm = document.getElementById('searchForm');
     searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const searchTerm = document.getElementById('searchInput').value;
+        //console.log('Searching for:', searchTerm); // Debug log
 
         fetch(`http://localhost:3001/movies/search?q=${encodeURIComponent(searchTerm)}`)
-          .then(res => res.json())
-          .then(data => displayMovies(data))
-          .catch(err => console.error("Error searching movies:", err));
+          .then(res => {
+            if (!res.ok) {
+              throw new Error(`HTTP error! status: ${res.status}`);
+            }
+            return res.json();
+          })
+          .then(data => {
+              // console.log('Search results:', data); // Debug log
+              displayMovies(data);
+          })
+          .catch(err => {
+              console.error("Error searching movies:", err);
+              document.querySelector(".movie-grid").innerHTML = `<p>Error searching movies: ${err.message}</p>`;
+          });
     });
     
     // Handles update form submission

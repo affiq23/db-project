@@ -24,10 +24,10 @@
     <main>
         <section class="review-form">
             <h2>Submit a Review</h2>
-            <form action="submit_review.html" method="POST">
+            <form id="addReviewForm">
                 <div class="form-group">
                     <label for="movie">Select Movie:</label>
-                    <select name="movie_id" id="movie" required>
+                    <select id="movieSelect" name="movieSelect">
                         <option value="">Choose a movie...</option>
                         <!-- Movie options will be populated here -->
                     </select>
@@ -88,5 +88,7 @@
             </div>
         </section>
     </main>
+
+    <script src="js/reviews.js" defer></script>
 </body>
 </html> 
