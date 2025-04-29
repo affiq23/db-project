@@ -55,5 +55,4 @@ exports.updateMovie = (req, res) => {
     res.json({ success: true, message: 'Movie updated!' });
   });
 };
-};
 
