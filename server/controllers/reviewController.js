@@ -23,13 +23,13 @@ exports.getAllReviews = (req, res) => {
 exports.getMovieReviews = (req, res) => {
   const movieId = req.params.movieId;
   const query = `
-    SELECT 
-      r.review_id, r.rating, r.date_of_rating, r.reviewer_name, r.review_text,
-      m.movie_id, m.title AS movie_title
-    FROM Review r
-    JOIN Movie m ON r.movie_id = m.movie_id
-    WHERE m.movie_id = ?
-  `;
+  SELECT 
+    r.review_id, r.rating, r.date_of_rating, r.reviewer_name, r.review_text,
+    m.movie_id, m.title AS movie_title
+  FROM Review r
+  JOIN Movie m ON r.movie_id = m.movie_id
+  ORDER BY r.review_id DESC
+`;
   
   db.query(query, [movieId], (err, results) => {
     if (err) {
@@ -42,11 +42,11 @@ exports.getMovieReviews = (req, res) => {
 
 // Create a new review
 exports.createReview = (req, res) => {
-  const { movie_id, rating, reviewer_name } = req.body;
-  
+  const { movie_id, rating, reviewer_name, review_text } = req.body;
+
   // Validate required fields
-  if (!movie_id || !rating) {
-    return res.status(400).json({ error: 'Movie ID and rating are required' });
+  if (!movie_id || !rating || !reviewer_name || !review_text) {
+    return res.status(400).json({ error: 'All fields are required' });
   }
 
   // Validate rating range (assuming 0-10 scale)
@@ -54,8 +54,12 @@ exports.createReview = (req, res) => {
     return res.status(400).json({ error: 'Rating must be between 0 and 10' });
   }
 
-  const query = 'INSERT INTO Review (movie_id, rating, date_of_rating, reviewer_name) VALUES (?, ?, CURDATE(), ?)';
-  db.query(query, [movie_id, rating, reviewer_name], (err, result) => {
+  const query = `
+    INSERT INTO Review (movie_id, rating, date_of_rating, reviewer_name, review_text)
+    VALUES (?, ?, CURDATE(), ?, ?)
+  `;
+  
+  db.query(query, [movie_id, rating, reviewer_name, review_text], (err, result) => {
     if (err) {
       console.error('Query error:', err);
       return res.status(500).json({ error: 'Internal Server Error', details: err.message });
@@ -66,6 +70,7 @@ exports.createReview = (req, res) => {
     });
   });
 };
+
 
 // Update a review
 exports.updateReview = (req, res) => {
