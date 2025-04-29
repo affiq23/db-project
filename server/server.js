@@ -5,7 +5,7 @@ const cors = require('cors'); // enable CORS so frontend on different port can a
 const app = express();
 const path  = require('path')
 const actorRoutes = require('./routes/actors');
-const movieRoutes = require('./routes/movies');
+const movieRoutes = require('./routes/movies'); // This imports the correct movies.js file
 const reviewRoutes = require('./routes/reviews');
 require('dotenv').config();
 

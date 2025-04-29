@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Define displayMovies at the top so it's available everywhere
     const displayMovies = (movies) => {
-        const container = document.querySelector(".movie-grid");
+        const container = document.getElementById("featured-movie-grid");
         container.innerHTML = "";
 
         if (!movies || movies.length === 0) {
@@ -10,12 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         movies.forEach(movie => {
-            // Normalize movie title for image filenames: lowercase and underscores
             const imageName = movie.title
                 .toLowerCase()
-                .replace(/[^a-z0-9]/g, "_")   // replace spaces and punctuation with "_"
-                .replace(/_+/g, "_")          // collapse multiple underscores
-                .replace(/^_|_$/g, "");       // trim leading/trailing underscores
+                .replace(/[^a-z0-9]/g, "_")
+                .replace(/_+/g, "_")
+                .replace(/^_|_$/g, "");
 
             const card = document.createElement("div");
             card.className = "movie-card";
@@ -41,8 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    /*
-    // Initial load
+    // Fetch and display featured movies
     fetch("http://localhost:3001/movies")
       .then(res => {
         if (!res.ok) {
@@ -52,33 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .then(data => displayMovies(data))
       .catch(err => {
-        console.error("Error loading movies:", err);
-        document.querySelector(".movie-grid").innerHTML = `<p>Error loading movies: ${err.message}</p>`;
+        console.error("Error loading featured movies:", err);
+        document.getElementById("featured-movie-grid").innerHTML = `<p>Error loading movies: ${err.message}</p>`;
       });
-    */
-
-    // Handle search form submission
-    const searchForm = document.getElementById('searchForm');
-    searchForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const searchTerm = document.getElementById('searchInput').value;
-        console.log('Searching for:', searchTerm); // Debug log
-
-        fetch(`http://localhost:3001/movies/search?q=${encodeURIComponent(searchTerm)}`)
-          .then(res => {
-            if (!res.ok) {
-              throw new Error(`HTTP error! status: ${res.status}`);
-            }
-            return res.json();
-          })
-          .then(data => {
-              console.log('Search results:', data); // Debug log
-              displayMovies(data);
-          })
-          .catch(err => {
-              console.error("Error searching movies:", err);
-              document.querySelector(".movie-grid").innerHTML = `<p>Error searching movies: ${err.message}</p>`;
-          });
-    });
-});
-  
+}); 
