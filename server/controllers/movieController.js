@@ -38,16 +38,22 @@ exports.updateMovie = (req, res) => {
 
   console.log('Update Request Received:', movieId, newTitle);
 
-  const query = `UPDATE movie SET title = '${newTitle}' WHERE id = ${movieId}`;
+  const query = `UPDATE movie SET title = ? WHERE movie_id = ?`;
 
-  console.log('Executing Change', query);
+  console.log('Executing Change:', query);
 
-  db.query(query, (err, results) => {
+  db.query(query, [newTitle, movieId], (err, results) => {
     if (err) {
       console.error('Query Error:', err);
       return res.status(500).json({ error: 'Server Error', details: err.message });
     }
+
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ error: 'Movie not found' });
+    }
+
     res.json({ success: true, message: 'Movie updated!' });
   });
+};
 };
 
