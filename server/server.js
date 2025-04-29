@@ -6,6 +6,7 @@ const app = express();
 const path  = require('path')
 const actorRoutes = require('./routes/actors');
 const movieRoutes = require('./routes/movies');
+const reviewRoutes = require('./routes/reviews');
 require('dotenv').config();
 
 app.use(cors());
@@ -36,7 +37,8 @@ db.connect((err) => {
 
 // API endpoints
 app.use('/actors', actorRoutes);
-app.use('/movies', movieRoutes)
+app.use('/movies', movieRoutes);
+app.use('/reviews', reviewRoutes);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
