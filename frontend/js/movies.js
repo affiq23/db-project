@@ -53,5 +53,27 @@ document.addEventListener("DOMContentLoaded", () => {
           .then(data => displayMovies(data))
           .catch(err => console.error("Error searching movies:", err));
     });
+    
+    // Handles update form submission
+    const updateForm = document.getElementById('updateForm');
+    if (updateForm) {
+      updateForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+  
+        const movieId = document.getElementById('updateMovieIdInput').value;
+        const newTitle = document.getElementById('updateTitleInput').value;
+  
+        fetch(`http://localhost:3001/movies/update?id=${encodeURIComponent(movieId)}&title=${encodeURIComponent(newTitle)}`)
+          .then(res => res.json())
+          .then(data => {
+            console.log('Update successful:', data);
+            alert('Movie Updated Successfully!');
+          })
+          .catch(err => {
+            console.error('Error updating movie:', err);
+            alert('Failed to update movie');
+          });
+      });
+    }
 });
   
