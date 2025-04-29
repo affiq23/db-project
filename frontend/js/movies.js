@@ -55,6 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Error loading movies:", err);
         document.querySelector(".movie-grid").innerHTML = `<p>Error loading movies: ${err.message}</p>`;
       });
+    
+=======
+    .then(res => res.json())
+    .then(data => displayMovies(data))
+    .catch(err => console.error("Error loading movies:", err));
+    
     */
 
     // Handle search form submission
@@ -80,5 +86,27 @@ document.addEventListener("DOMContentLoaded", () => {
               document.querySelector(".movie-grid").innerHTML = `<p>Error searching movies: ${err.message}</p>`;
           });
     });
+    
+    // Handles update form submission
+    const updateForm = document.getElementById('updateForm');
+    if (updateForm) {
+      updateForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+  
+        const movieId = document.getElementById('updateMovieIdInput').value;
+        const newTitle = document.getElementById('updateTitleInput').value;
+  
+        fetch(`http://localhost:3001/movies/update?id=${encodeURIComponent(movieId)}&title=${encodeURIComponent(newTitle)}`)
+          .then(res => res.json())
+          .then(data => {
+            console.log('Update successful:', data);
+            alert('Movie Updated Successfully!');
+          })
+          .catch(err => {
+            console.error('Error updating movie:', err);
+            alert('Failed to update movie');
+          });
+      });
+    }
 });
   
